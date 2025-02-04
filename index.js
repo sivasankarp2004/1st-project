@@ -28,7 +28,13 @@ const responseSchema = new mongoose.Schema({
     ],
     name: { type: String, required: true },
     registerNo: { type: String, required: true },
-    department: { type: String, required: true }
+    department: { type: String, required: true },
+    gender: { type: String, required: true },
+     graduate: { type: String, required: true },
+    hsc: { type: String, required: true },
+    myambition: { type: String, required: true },
+    department: { type: String, required: true },
+    dob: { type: String, required: true }
 });
 
 const Response = mongoose.model('Response', responseSchema);
@@ -40,8 +46,13 @@ app.post('/submit', async (req, res) => {
         const newResponse = new Response({ 
             responses, 
             name, 
-            registerNo, 
-            department 
+            registerNo,
+            gender,
+            graduate,
+            hsc,
+            myambition,
+            department,
+            dob
         });
         
         await newResponse.save();
